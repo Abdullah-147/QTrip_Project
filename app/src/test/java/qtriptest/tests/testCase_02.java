@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class testCase_02 extends BaseTest {
 
 	@Test(description="TestCase2",priority=2,groups = "Search and Filter flow",enabled = true,dataProvider = "dataProviderMethod",dataProviderClass = DP.class)
-	public void TestCase02(String cityName,String category,String Duration, String filteredCount,String unfilteredCount) throws InterruptedException {
+	public void UI_TestCase02(String cityName,String category,String Duration, String filteredCount,String unfilteredCount) throws InterruptedException {
 		// Goto Homepage
 		homePage.navigateToHomePage();
 

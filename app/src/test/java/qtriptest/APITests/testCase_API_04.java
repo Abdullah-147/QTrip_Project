@@ -22,7 +22,7 @@ public class testCase_API_04 {
     String password="Abdul@0000";
 
     @Test(description="Verify that a duplicate user account cannot be created on the Qtrip Website",groups={"API Tests"})
-    public void checkDuplicateRegisteration(){
+    public void API_testCase04_checkDuplicateRegisteration(){
         String email="testuser"+UUID.randomUUID()+"@gmail.com";
 
         //Register a new user
@@ -39,8 +39,8 @@ public class testCase_API_04 {
         obj.put("email", email);
         obj.put("password", password);
         obj.put("confirmpassword", password);
-        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").log().all().when().post();
-        response.then().log().all();
+        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").when().post();
+        //response.then().log().all();
         if(expectedStatusCode==201) 
         {
             Assert.assertEquals(response.getStatusCode(), expectedStatusCode,"Registration failed.");

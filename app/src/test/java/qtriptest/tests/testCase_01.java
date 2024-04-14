@@ -8,7 +8,7 @@ import qtriptest.pages.RegisterPage;
 public class testCase_01 extends BaseTest{
 
     @Test(description = "TestCase1",groups = "Login Flow",dataProvider = "dataProviderMethod",dataProviderClass = DP.class,enabled=true,priority=1)
-    public void TestCase01(String userName,String password) {
+    public void UI_TestCase01(String userName,String password) {
         SoftAssert softassert=new SoftAssert();
         
 

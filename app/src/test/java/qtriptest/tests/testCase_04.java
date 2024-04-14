@@ -9,7 +9,7 @@ public class testCase_04 extends BaseTest
 {
     int expectedReservationCount;
     @Test(description="TestCase4",priority=4,enabled=true,groups = "Reliability Flow",dataProvider = "dataProviderMethod",dataProviderClass = DP.class)
-    public void TestCase04(String userName,String password,String adventureDetails1,String adventureDetails2,String adventureDetails3) throws InterruptedException{
+    public void UI_TestCase04(String userName,String password,String adventureDetails1,String adventureDetails2,String adventureDetails3) throws InterruptedException{
         expectedReservationCount=0;
         //Goto Qtrip homePage
         SoftAssert softassert=new SoftAssert();

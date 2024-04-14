@@ -30,7 +30,7 @@ public class testCase_API_01 {
     }
 
     @Test(description="Verify that a new user can be registered and login using APIs of QTrip",groups={"API Tests"})
-    public void testCase01c_ValidLogin(){
+    public void API_testCase01c_ValidLogin(){
         testCase_API_01 t1=new testCase_API_01();
         t1.RegisterWithValidCreds();
         t1.LoginWithValidCreds();
@@ -50,8 +50,8 @@ public class testCase_API_01 {
         obj.put("email", email);
         obj.put("password", password);
         obj.put("confirmpassword", password);
-        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").log().all().when().post();
-        response.then().log().all();
+        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").when().post();
+        //response.then().log().all();
         Assert.assertEquals(response.getStatusCode(), 201,"Registration failed.");
         Assert.assertTrue(response.jsonPath().getBoolean("success"),"Registration failed.");
     }
@@ -63,8 +63,8 @@ public class testCase_API_01 {
         obj.put("email", email);
         obj.put("password", password);
         obj.put("confirmpassword", "password");
-        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").log().all().when().post();
-        response.then().log().all();
+        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").when().post();
+        //response.then().log().all();
         Assert.assertEquals(response.getStatusCode(), 400,"Registration success with password and confrim password not same..");
         Assert.assertFalse(response.jsonPath().getBoolean("success"),"Registration success with password and confrim password not same..");
         Assert.assertEquals(response.jsonPath().getString("message"), "Password & confirm password doesn't match");
@@ -76,8 +76,8 @@ public class testCase_API_01 {
         JSONObject obj=new JSONObject();
         obj.put("email", email);
         obj.put("password", password);
-        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").log().all().when().post();
-        response.then().log().all();
+        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").when().post();
+        //response.then().log().all();
         Assert.assertEquals(response.getStatusCode(), 201,"Login Failed..");
         Assert.assertTrue(response.jsonPath().getBoolean("success"),"Login Failed..");
         token=response.jsonPath().getString("data.token");
@@ -92,8 +92,8 @@ public class testCase_API_01 {
         JSONObject obj=new JSONObject();
         obj.put("email", email);
         obj.put("password", "password");
-        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").log().all().when().post();
-        response.then().log().all();
+        Response response=RestAssured.given().body(obj.toString()).contentType("application/json").when().post();
+        //response.then().log().all();
         Assert.assertEquals(response.getStatusCode(), 403,"Logged in with Invalid Creds..");
         Assert.assertEquals(response.jsonPath().getString("message"), "Password is incorrect");
     }

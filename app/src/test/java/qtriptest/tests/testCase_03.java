@@ -8,7 +8,7 @@ import org.testng.asserts.SoftAssert;
 public class testCase_03 extends BaseTest{
 
     @Test(description="TestCase3",priority=3,groups = {"Booking and Cancellation Flow"},enabled=true,dataProvider = "dataProviderMethod",dataProviderClass = DP.class)
-    public void TestCase03(String userName,String password,String city,String adventure,String name,String date,String count) throws InterruptedException{
+    public void UI_TestCase03(String userName,String password,String city,String adventure,String name,String date,String count) throws InterruptedException{
         //Goto HomePage
         SoftAssert softassert=new SoftAssert();
         homePage.navigateToHomePage();

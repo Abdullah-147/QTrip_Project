@@ -15,9 +15,9 @@ public class testCase_API_03 {
     String basePath_checkReservation="api/v1/reservations";
 
     @Test(description="Verify that a reservation can be made using the QTrip API",groups={"API Tests"})
-    public void testCase03_BookReservation(){
+    public void API_testCase03_BookReservation(){
         testCase_API_01 t1=new testCase_API_01();
-        t1.testCase01c_ValidLogin();
+        t1.API_testCase01c_ValidLogin();
         System.out.println(testCase_API_01.token+"\n"+testCase_API_01.user_Id);
         bookReservation(testCase_API_01.token,testCase_API_01.user_Id,"1773524915");
         checkReservation(testCase_API_01.token,testCase_API_01.user_Id,"1773524915");
@@ -38,8 +38,8 @@ public class testCase_API_03 {
 
         String authToken="Bearer "+token;
 
-        Response response=RestAssured.given().header("Authorization",authToken).contentType("application/json").body(obj.toString()).log().all().when().post();
-        response.then().log().all();
+        Response response=RestAssured.given().header("Authorization",authToken).contentType("application/json").body(obj.toString()).when().post();
+        //response.then().log().all();
 
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("success"));
@@ -51,9 +51,9 @@ public class testCase_API_03 {
         RestAssured.basePath=basePath_checkReservation;
 
         String authToken="Bearer "+token;
-        Response response=RestAssured.given().queryParam("id", id).header("Authorization",authToken).contentType("application/json").log().all().when().get();
+        Response response=RestAssured.given().queryParam("id", id).header("Authorization",authToken).contentType("application/json").when().get();
 
-        response.then().log().all();
+        //response.then().log().all();
 
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertEquals(response.jsonPath().getString("[0].adventure"), adventureId);

@@ -4,7 +4,7 @@
   <listeners>
     <listener class-name="qtriptest.Listeners"/>
   </listeners>
-  <test thread-count="5" name="Qtrip Test(failed)">
+  <test thread-count="5" name="Qtrip UI Test(failed)">
     <groups>
       <run>
         <include name="Login Flow"/>
@@ -16,11 +16,25 @@
     <classes>
       <class name="qtriptest.tests.testCase_04">
         <methods>
-          <include name="TestCase04" invocation-numbers="0 1 2"/>
+          <include name="TestCase04" invocation-numbers="2"/>
           <include name="tearDown"/>
           <include name="driverSetup"/>
         </methods>
       </class> <!-- qtriptest.tests.testCase_04 -->
     </classes>
-  </test> <!-- Qtrip Test(failed) -->
+  </test> <!-- Qtrip UI Test(failed) -->
+  <test thread-count="5" name="Qtrip API Test(failed)">
+    <groups>
+      <run>
+        <include name="API Tests"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="qtriptest.APITests.testCase_API_02">
+        <methods>
+          <include name="testCase02_searchCities"/>
+        </methods>
+      </class> <!-- qtriptest.APITests.testCase_API_02 -->
+    </classes>
+  </test> <!-- Qtrip API Test(failed) -->
 </suite> <!-- Failed suite [Tests for QTrip Regression] -->

@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Tests for QTrip Regression">
-	<groups>
-		<run>
-			<include name="Login Flow" />
-			<include name="Search and Filter flow" />
-			<include name="Booking and Cancellation Flow" />
-			<include name="Reliability Flow" />
-		</run>
-	</groups>
 	<listeners>
 		<listener class-name="qtriptest.Listeners" />
 	</listeners>
-	<test name="Qtrip Test">
+	<test name="Qtrip UI Tests">
+		<groups>
+			<run>
+				<include name="Login Flow" />
+				<include name="Search and Filter flow" />
+				<include name="Booking and Cancellation Flow" />
+				<include name="Reliability Flow" />
+			</run>
+		</groups>
 		<packages>
 			<package name="qtriptest.tests" />
+		</packages>
+	</test>
+	<test name="Qtrip API Tests">
+		<groups>
+			<run>
+				<include name="API Tests" />
+			</run>
+		</groups>
+		<packages>
+			<package name="qtriptest.APITests" />
 		</packages>
 	</test>
 </suite>

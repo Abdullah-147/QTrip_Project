@@ -15,7 +15,7 @@ public class testCase_API_02 {
     String basePath_searchCity= "api/v1/cities";
 
     @Test(description="Verify that the search City API Returns the correct number of results",groups={"API Tests"})
-    public void testCase02_searchCities(){
+    public void API_testCase02_searchCities(){
         testCase_API_02 t2=new testCase_API_02();
         t2.SearchCity();
     }
@@ -25,8 +25,8 @@ public class testCase_API_02 {
         RestAssured.basePath=basePath_searchCity;
 
         Response response=RestAssured.given().queryParam("q", "beng").when().get();
-        response.then().log().all();
-        File file=new File("/home/crio-user/workspace/abdullahjamadar01-ME_API_TESTING_PROJECT/app/src/test/resources/schema.json");
+        //response.then().log().all();
+        File file=new File(".\\src\\main\\resources\\schema.json");
         JsonSchemaValidator js=JsonSchemaValidator.matchesJsonSchema(file);
         
         //Validate the json Schema
