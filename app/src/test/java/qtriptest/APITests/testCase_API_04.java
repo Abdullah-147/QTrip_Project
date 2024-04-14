@@ -1,15 +1,13 @@
 package qtriptest.APITests;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
+import java.util.UUID;
+
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.UUID;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 
 //Verify that a duplicate user account cannot be created on the Qtrip Website
 public class testCase_API_04 {
